@@ -38,7 +38,7 @@ The application works with 4 containers, wich are:
 
 Axios is the lib used both in the Front-End and the Back-End to make API requests, because it us define some rules ( like a base URL ) and that makes the code less verbose.
 
-### **ESLint with AirBNB definitions** ( https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb )
+### **ESLint with AirBNB Style Guide** ( https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb )
 
 In development environment I used ESLint in both Front-End and Back-end, using the rules defined by AirBNB.
 
