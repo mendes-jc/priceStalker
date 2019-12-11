@@ -11,6 +11,8 @@ export default {
     // Após a busca, envia o e-mail para o usuário
     const { searchPhrase, email } = job.attrs.data;
 
+    if (searchPhrase == "Some Product") return;
+    
     const response = await api.get(`/buy/browse/v1/item_summary/search?q=${searchPhrase}&sort=price&limit=3`,
       {
         headers: {

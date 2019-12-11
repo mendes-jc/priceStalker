@@ -4,22 +4,12 @@ import cors from 'cors';
 import routes from './routes';
 import bull from './app/lib/Queue';
 
-class App {
-  constructor() {
-    this.server = express();
-    this.init();
-    this.routes();
-  }
+const app = express();
 
-  init() {
-    this.server.use(express.json());
-    this.server.use(cors());
-    BullBoard.setQueues([bull]);
-  }
+app.use(cors());
+app.use(express.json());
+app.use(routes);
 
-  routes() {
-    this.server.use(routes);
-  }
-}
+BullBoard.setQueues([bull]);
 
-export default new App().server;
+export default app;
