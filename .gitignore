@@ -1,0 +1,10 @@
+*/node_modules/
+*/yarn.lock
+*/yarn-error.log
+*/.eslint.js
+*/nodemon.json
+
+*/.gitignore
+*/.git/
+
+backend/dist/
