@@ -1,6 +1,6 @@
 .eslintrc.js
 README.md
-yarb.lock
+yarn.lock
 .dockerignore
 Dockerfile
 node_modules/
