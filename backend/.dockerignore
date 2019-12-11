@@ -1,0 +1,8 @@
+build/
+node_modules/
+.dockerignore
+.eslint.rc
+Dockerfile
+nodemon.json
+yarn-error.log
+yarn.lock

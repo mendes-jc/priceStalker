@@ -11,6 +11,15 @@ services:
       - redis:redisdb
     ports:
       - "3333:3333"
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    links:
+      - backend:backend
+    ports:
+      - "3000:3000"
   db:
     image: mongo
   redis:

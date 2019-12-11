@@ -10,7 +10,6 @@ class UserController {
       name,
       email,
     });
-    console.log(user);
     return res.status(201).json({ message: 'User created', user });
   }
 

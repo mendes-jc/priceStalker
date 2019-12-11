@@ -7,44 +7,52 @@ import api from '../../../services/api';
 import { getUserSuccess } from './actions';
 
 function* getUser({ email }) {
-  const response = yield call(api.request, {
-    method: 'GET',
-    url: '/users',
-    headers: {
-      'content-type': 'application/json',
-    },
-    params: {
-      email,
-    },
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'GET',
+      url: '/users',
+      headers: {
+        'content-type': 'application/json',
+      },
+      params: {
+        email,
+      },
+    });
 
-  const firstAccess = response.status === 204;
-  console.log(firstAccess);
-  yield put(getUserSuccess({
-    ...response.data,
-    firstAccess,
-    email,
-  }));
+    const firstAccess = response.status === 204;
+    console.log(firstAccess);
+    yield put(getUserSuccess({
+      ...response.data,
+      firstAccess,
+      email,
+    }));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function* newUser({ user }) {
-  const response = yield call(api.request, {
-    method: 'POST',
-    url: '/users',
-    headers: {
-      'content-type': 'application/json',
-    },
-    data: {
-      ...user,
-    },
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'POST',
+      url: '/users',
+      headers: {
+        'content-type': 'application/json',
+      },
+      data: {
+        ...user,
+      },
+    });
 
-  const firstAccess = false;
+    const firstAccess = false;
 
-  yield put(getUserSuccess({
-    ...response.data.user,
-    firstAccess,
-  }));
+    yield put(getUserSuccess({
+      ...response.data.user,
+      firstAccess,
+    }));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export default all([

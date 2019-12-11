@@ -1,16 +1,16 @@
-import agenda from '../lib/Agenda';
+"use strict"; function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }Object.defineProperty(exports, "__esModule", {value: true});var _Agenda = require('../lib/Agenda'); var _Agenda2 = _interopRequireDefault(_Agenda);
 
 class AgendaController {
   async index(req, res) {
-    const { email } = req.query;
-    const alerts = await agenda.jobs({ 'data.email': email });
-    return res.json({ message: 'Ok', alerts });
+    const { email } = req.body;
+    const jobs = await _Agenda2.default.jobs({ 'data.email': email });
+    return res.json(jobs);
   }
 
   async store(req, res) {
     const { email, interval, searchPhrase } = req.body;
 
-    const jobs = await agenda.jobs(
+    const jobs = await _Agenda2.default.jobs(
       {
         name: 'EbaySearch',
         'data.email': email,
@@ -21,25 +21,21 @@ class AgendaController {
       return res.status(400).json({ error: 'You already have an alert with the same Search Phrase' });
     }
 
-    const job = agenda.create('EbaySearch', {
+    const job = _Agenda2.default.create('EbaySearch', {
       email,
       interval,
       searchPhrase,
     });
     job.repeatEvery(`${interval} minutes`);
     await job.save();
-
-    const alerts = await agenda.jobs({ 'data.email': email });
-
-    return res.status(201).json({ message: 'Created', alerts });
+    return res.status(200).json({ message: 'Created' });
   }
 
   async update(req, res) {
     const { id } = req.params;
     const { interval, searchPhrase } = req.body;
-
-    const jobs = await agenda.jobs();
-    // eslint-disable-next-line eqeqeq
+    // eslint-disable-next-line quote-props
+    const jobs = await _Agenda2.default.jobs();
     const foundJob = jobs.find((job) => job.attrs._id == id);
 
     if (!foundJob) {
@@ -53,17 +49,13 @@ class AgendaController {
     }
     foundJob.repeatEvery(`${interval} minutes`);
     await foundJob.save();
-
-    const alerts = await agenda.jobs({ 'data.email': foundJob.attrs.data.email });
-
-    return res.status(200).json({ messsage: 'Updated', alerts });
+    return res.status(200).json(foundJob);
   }
 
   async delete(req, res) {
     const { id } = req.params;
 
-    const jobs = await agenda.jobs();
-    // eslint-disable-next-line eqeqeq
+    const jobs = await _Agenda2.default.jobs();
     const foundJob = jobs.find((job) => job.attrs._id == id);
 
     if (!foundJob) {
@@ -71,11 +63,8 @@ class AgendaController {
     }
 
     await foundJob.remove();
-
-    const alerts = await agenda.jobs({ 'data.email': foundJob.attrs.data.email });
-
-    return res.status(200).json({ message: 'Job removed', alerts });
+    return res.status(200).json({ message: 'Job removed' });
   }
 }
 
-export default new AgendaController();
+exports. default = new AgendaController();

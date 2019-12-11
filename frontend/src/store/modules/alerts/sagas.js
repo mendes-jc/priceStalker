@@ -9,42 +9,63 @@ import api from '../../../services/api';
 import { getAlertsSuccess } from './actions';
 
 function* getAlerts({ email }) {
-  const response = yield call(api.request, {
-    method: 'GET',
-    url: '/alerts',
-    params: {
-      email,
-    },
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'GET',
+      url: '/alerts',
+      params: {
+        email,
+      },
+    });
 
-  yield put(getAlertsSuccess(response.data));
+    yield put(getAlertsSuccess(response.data.alerts));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function* setAlert({ id, data }) {
-  yield call(api.request, {
-    method: 'PUT',
-    url: `/alerts/${id}`,
-    data,
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'PUT',
+      url: `/alerts/${id}`,
+      data,
+    });
+
+    yield put(getAlertsSuccess(response.data.alerts));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function* deleteAlert({ id }) {
-  yield call(api.request, {
-    method: 'DELETE',
-    url: `/alerts/${id}`,
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'DELETE',
+      url: `/alerts/${id}`,
+    });
+
+    yield put(getAlertsSuccess(response.data.alerts));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function* createAlert({ email }) {
-  yield call(api.request, {
-    method: 'POST',
-    url: '/alerts',
-    data: {
-      email,
-      searchPhrase: 'Some Product',
-      interval: 30,
-    },
-  });
+  try {
+    const response = yield call(api.request, {
+      method: 'POST',
+      url: '/alerts',
+      data: {
+        email,
+        searchPhrase: 'Some Product',
+        interval: 30,
+      },
+    });
+    yield put(getAlertsSuccess(response.data.alerts));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export default all([
