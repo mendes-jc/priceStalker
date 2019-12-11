@@ -28,7 +28,7 @@ The application works with 4 containers, wich are:
 
 * **MongoDB**: The main database of the application, holding all the info about alerts and users.
 * **Redis**: This container is used by Bull, wich is responsable for queueing the e-mails that are sent to users.
-* **Back-End**: Holds the Node.js application that provides the API for the Front-End and, in paralel, control the jobs that search products on Ebay and request Bull to send the e-mails.
+* **Back-End**: Holds the Node.js application that provides the API for the Front-End and, in parallel, control the jobs that search products on Ebay and request Bull to send the e-mails.
 * **Front-End**: Here's the React.js application where you can access all you need to create and modify alerts.
 
 ---
@@ -78,7 +78,7 @@ I decided to use mongoose to have an easier and less verbose controll to the Mon
 
 ## **Front-End**
 
-The main features of the Front-End\
+The main features of the Front-End
 
 ---
 ### **Redux** ( https://github.com/reduxjs/redux )
@@ -90,7 +90,7 @@ I decided to use Redux because it provides a great way to centralize the applica
 Redux saga is a awesome middleware that let we put on a new step on the Redux process, allowing to make some side-effects, like a request on an API.\
 I used it to get and update all the necessary information from the API.
 
-### *Styled Components* ( https://github.com/styled-components/styled-components )
+### **Styled Components** ( https://github.com/styled-components/styled-components )
 
 I decided to use Styled Components because it let us create styled React Components using CSS inside the JavaScript code, so there's no need to import CSS files and use CSS Classes.
 
