@@ -34,11 +34,11 @@ The application works with 4 containers, wich are:
 ---
 ## **Details**
 
-### **Axios**
+### **Axios** ( https://github.com/axios/axios )
 
 Axios is the lib used both in the Front-End and the Back-End to make API requests, because it us define some rules ( like a base URL ) and that makes the code less verbose.
 
-### **ESLint with AirBNB definitions**
+### **ESLint with AirBNB definitions** ( https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb )
 
 In development environment I used ESLint in both Front-End and Back-end, using the rules defined by AirBNB.
 
@@ -65,11 +65,12 @@ All the API is built on express. It is easy to use, fast to configure and provid
 
 Nodemailer is the lib responsable for sending the emails to users. I decided to use it because it is very simple and fits all my needs.\
 
-### **Handlebars**
+### **Express Handlebars** ( https://github.com/ericf/express-handlebars )
 
-I decided to use it because it let me, with express-handlebars ( https://github.com/ericf/express-handlebars ) and nodemailer-express-handlebars ( https://github.com/yads/nodemailer-express-handlebars ), create the email template used by nodemailer, using HTML syntax.
+I decided to use it because it let us easily create email template using Mustache template system.\
+I used it with Nodemailer Express Handlebars ( https://github.com/yads/nodemailer-express-handlebars ).
 
-### **Mongoose**
+### **Mongoose** ( https://github.com/Automattic/mongoose )
 
 I decided to use mongoose to have an easier and less verbose controll to the Mongo Database.
 
@@ -89,10 +90,10 @@ I decided to use Redux because it provides a great way to centralize the applica
 Redux saga is a awesome middleware that let we put on a new step on the Redux process, allowing to make some side-effects, like a request on an API.\
 I used it to get and update all the necessary information from the API.
 
-### Styled Components ( https://github.com/styled-components/styled-components )
+### *Styled Components* ( https://github.com/styled-components/styled-components )
 
 I decided to use Styled Components because it let us create styled React Components using CSS inside the JavaScript code, so there's no need to import CSS files and use CSS Classes.
 
-### Immer
+### **Immer** ( https://github.com/immerjs/immer )
 
 I used Immer because it let us work with immutable data in a more natural way, because we work on a mutable draft that replaces the original immutable data later.
