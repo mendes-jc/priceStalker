@@ -1,5 +1,7 @@
 # eBay PriceStalker
 
+![ScreenShot](applicationScreen.png)
+
 ## What does this application do ?
 
 It lets you create alerts for some products, like 'iPhone 7 plus', and then it send you emails periodcally in 2, 10 or 30 minutes, showing you the 3 cheaper results for it on eBay.
