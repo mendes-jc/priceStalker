@@ -8,12 +8,12 @@ It lets you create alerts for some products, like 'iPhone 7 plus', and then it s
 ## Installation
 
 First, you need to assure that you have Docker and Docker Compose installed in your machine.
-If you need to install it, follow the official guide:
+If you need to install it, just follow the official guides:
 
 https://docs.docker.com/install/\
 https://docs.docker.com/compose/install/
 
-After it, just go to the application folder and run:
+After it, follow the **Configuration** guide below and then run:
 
 ```
 docker-compose up --build
