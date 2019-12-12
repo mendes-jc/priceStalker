@@ -22,7 +22,25 @@ If no error occour, you should be able to access the application through:\
 http://localhost:3000/
 
 ---
-## Structure
+## Configuration
+
+In order to the application works as expected, you need to access the **backend** folder and config a .env file based on .env.example.
+
+You may ask yourself how can you get the eBay token. Don't worry, just create a eBay Developer Account following their guide:
+
+https://developer.ebay.com/api-docs/static/creating-edp-account.html
+
+Here's how you get your credentials:
+
+https://developer.ebay.com/api-docs/static/oauth-credentials.html
+
+After getting it, you need to encode "ClientID:ClientSecret" ( Don't forget the ':' ) to Base64.\
+Your final token, in the .env file should look like:
+```javascript
+AUTH_TOKEN='Basic yourEncodedTokenHereeeefoAINBgpaosgpaonstignoasinasgs='
+```
+---
+## **Structure**
 
 The application works with 4 containers, wich are:
 
@@ -32,7 +50,7 @@ The application works with 4 containers, wich are:
 * **Front-End**: Here's the React.js application where you can access all you need to create and modify alerts.
 
 ---
-## **Details**
+## **Some Details**
 
 ### **Axios** ( https://github.com/axios/axios )
 

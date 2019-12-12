@@ -49,8 +49,10 @@ function Alert({
     if (editing) {
       if (!data.searchPhrase) {
         alert('Please, provide a search phrase.');
+        return;
       } else if (!data.interval) {
         alert('Please, provide an interval.');
+        return;
       } else {
         setAlertRequest(alertData._id, data);
         getAlertsRequest(data.email);

@@ -10,7 +10,7 @@ class AnswerMail {
 
     return Mail.sendMail({
       to: `${user.name} <${user.email}>`,
-      subject: `Look at those prices for ${searchPhrase}!`,
+      subject: `Look at these prices for '${searchPhrase}!'`,
       template: 'priceAlert',
       context: {
         name: user.name,

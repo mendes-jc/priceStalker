@@ -1,14 +1,13 @@
 FROM node:lts-alpine
 
-RUN mkdir ~/pricestalker
-WORKDIR ~/pricestalker
+RUN mkdir /pricestalker
+WORKDIR /pricestalker
 RUN mkdir build
 
 COPY . .
 
 RUN ls
 RUN yarn
-# RUN yarn build
 
 EXPOSE 3333
 
